@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prova 1</title>
+  <style>
+    .darkolivegreen {
+      color: #556B2F;
+    }
+
+    .goldenrod {
+      color: #DAA520;
+    }
+
+    .steelblue {
+      color: #4682B4;
+    }
+  </style>
+</head>
+<body>
+    
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    /*
+      Prova nº 1
+
+      2) Declare uma funçao de componente react em formato arrow funtion, que receba
+      as props personalizadas: produto, preço e estoque
+
+   */
+    const Produto = ({ produto, preco, estoque }) => {
+   
+    
+      /*
+         5) dentro da funçao, coloque um fragment contendo, dentro dele,
+            
+         a) Um Elemento H1, estilizado com a primeira classe declarada no item3, exibindo dentro dela,
+         o valor da prop Produto
+
+         b) um elemento , estilizado com a segunda classe declarada no item , contendo texto fixo "R$""
+        seguido pelo valor da prop preço formatado com .tofixed(2)
+
+        c) um outro elemento p, estilizado com a terceira classe definida no item , comtendo um texto fixo 
+        "Quantidade em estoque: "seguido pelo valor da props estoque
+      */
+         return (
+        <>
+          <h1 className="darkolivegreen">{produto}</h1>
+          <p className="goldenrod">R$ {preco.toFixed(2)}</p>
+          <p className="steelblue">Quantidade em estoque: {estoque}</p>
+        </>
+      )
+    }
+   
+    const container = (
+      <>
+        <Produto produto="Teclado Gamer" preco={199.90} estoque={15} />
+        <Produto produto="Mouse" preco={89.50} estoque={30} />
+        <Produto produto="Monitor 27 Polegada" preco={999.99} estoque={8} />
+      </>
+    )
+
+   const root = ReactDOM.createRoot(document.getElementById('root'))
+
+   root.render(container)
+
+  </script>
+<!-- A lógica utilizada na resolução foi através da obesrvação do que haviamos visto em aula
+ criar um componente em formato arrow function que recebe valores. Usando fragment para agrupar 
+ Em seguida, exibir os valores desta atráves de um returne como delimitado no exercicio em 2 classes
+ h1 e p, foi criado um container com dados para teste e apos isso renderizavos este atraves do root
+ -->
+</body>
+</html>
